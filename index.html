@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Flip</title>
+    <title>Quiz</title>
 </head>
 <body>
     
@@ -16,105 +16,100 @@
                     <span></span>
                 </div>
                 <div class="header__menu-text">
-                     Текст
+                    Подготовка к отопительному сезону. Климатическая техника
                 </div>
             </div>  
         </div>
     </header>
 
 
+
+
+    <div class="quiz__container">
+
+
+        <h1 class="quiz__title">
+            Тестирование
+        </h1>
+
+
+        <div class="quiz__description test">
+            <p class="quiz__description-text">
+                Осталось пройти небольшой тест,  который покажет, как хорошо ты усвоил материал
+            </p>
+            <ol class="quiz__description__list">
+                <li class="quiz__description__list-item">
+                    Для успешного прохождения нужно правильно ответить минимум на 7 вопросов из 10
+                </li>
+                <li class="quiz__description__list-item">
+                    На прохождение теста дается 3 попытки
+                </li>
+            </ol>
+        </div>
+
+
+        <div class="quiz" id="quiz">
+
+            <div class="quiz__header" id="header">
+               
+                <h2 class="quiz__header-title">%title%</h2>
     
-    
-    <div class="flip-card__container">
-
-
-
-        <div class="flip-card">
-
-            <h1 class="flip-card__title">Флип карточки</h1>
-
-
-
-            <div class="flip-card__inner">
-
-                <div class="flip-card__items">
-
-                    <div class="flip-card__item">
-                        <div class="flip-card__front">
-                            <img src="images/1.svg" class="flip-card__front-img" alt="images">
-                            <h3 class="flip-card__front-title">Full-Array Local Dimming</h3>
-                            <p class="flip-card__front-text">ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
-                            <img src="images/2.svg" alt="indicator" class="flip-card__front-indicator">
-                        </div>
-
-                        <div class="flip-card__back">
-                            <h3 class="flip-card__back-title">Backlight Master Dive</h3>
-                            <p class="flip-card__back-text">Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается сверхплотным расположением светодиодов, управлением каждым из них и интеллектуальным алгоритмом локального затемнения. </p>
-                            <img src="images/3.svg" alt="indicator" class="flip-card__front-indicator">
-                        </div>
-
-                    </div>
-
-                    <div class="flip-card__item">
-                        <div class="flip-card__front">
-                            <img src="images/1.svg" class="flip-card__front-img" alt="images">
-                            <h3 class="flip-card__front-title">Full-Array Local Dimming</h3>
-                            <p class="flip-card__front-text">ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
-                            <img src="images/2.svg" alt="indicator" class="flip-card__front-indicator">
-                        </div>
-
-                        <div class="flip-card__back">
-                            <h3 class="flip-card__back-title">Backlight Master Dive</h3>
-                            <p class="flip-card__back-text">Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается сверхплотным расположением светодиодов, управлением каждым из них и интеллектуальным алгоритмом локального затемнения. </p>
-                            <img src="images/3.svg" alt="indicator" class="flip-card__front-indicator">
-                        </div>
-
-                    </div>
-
-                    <div class="flip-card__item">
-
-                        <div class="flip-card__front">
-                            <img src="images/1.svg" class="flip-card__front-img" alt="images">
-                            <h3 class="flip-card__front-title">Full-Array Local Dimming</h3>
-                            <p class="flip-card__front-text">ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
-                            <img src="images/2.svg" alt="indicator" class="flip-card__front-indicator">
-                        </div>
-
-                        <div class="flip-card__back">
-                            <h3 class="flip-card__back-title">Backlight Master Dive</h3>
-                            <p class="flip-card__back-text">Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается сверхплотным расположением светодиодов, управлением каждым из них и интеллектуальным алгоритмом локального затемнения. </p>
-                            <img src="images/3.svg" alt="indicator" class="flip-card__back-indicator">
-                        </div>
-
-                    </div>
-
-
-
-                   
-
-                    
-                </div>
+                <!-- Результаты викторины 
+                <h2 class="title">%title%</h2>
+                <h3 class="summary">%message%</h3>
+                <p class="result">%result%</p>
+                -->
 
             </div>
-                    
-                 
+    
+            <ul class="quiz__list" id="list">
 
-            <div class="flip-card__control">
-                <button class="flip-card__control-btn" type="button">Продолжить</button>
-            </div>     
-            
+                <li class="quiz__list-item">
+                    <label>
+                        <input type="radio" class="quiz__input-answer" name="answer" />
+                        <span>Ответ 1</span>
+                    </label>
+                </li>
 
+                <li class="quiz__list-item">
+                    <label>
+                        <input type="radio" class="quiz__input-answer" name="answer" />
+                        <span>Ответ 1</span>
+                    </label>
+                </li>
+
+                <li class="quiz__list-item">
+                    <label>
+                        <input type="radio" class="quiz__input-answer" name="answer" />
+                        <span>Ответ 1</span>
+                    </label>
+                </li>
+
+                <li class="quiz__list-item">
+                    <label>
+                        <input type="radio" class="quiz__input-answer" name="answer" />
+                        <span>Ответ 1</span>
+                    </label>
+                </li>
+  
+            </ul>
+
+            <div class="quiz__warning">
+                <p>Вы не ответили на вопрос</p>
+                <p>Пожалуйста, выберите, ответ на данный вопрос</p>
+            </div>
+    
         </div>
-        
 
+        <div class="quiz__control">
+            <button class="quiz__control-btn" type="submit" id="submit">Принять</button>
+            <button class="quiz__control-btn start" type="button">Начать<img src="images/1.svg" alt="img"></button>
+            <button class="quiz__processing-btn" type="submit" id="submit">Повторить тест<img src="images/Union.svg" alt="img"></button>
+        </div>  
+
+        <div class="footer__line"></div>
 
     </div>
-
-    
-
-
-
-
     <script src="js/script.js"></script>
 </body>
 </html>
