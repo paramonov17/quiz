@@ -172,6 +172,65 @@ button {
 }
 
 
+.quiz__processing{
+    display: none;
+}
+
+.quiz__processing-name,
+.quiz__processing-data{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #69696C;
+    margin: 30px 7px 10px 0px;
+}
+
+.quiz__rezult{
+    height: 125px;
+    display: flex;
+    gap: 20px;
+}
+
+.quiz__rezult-attempt{
+    flex:1;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F3F3;
+    border-radius: 15px;
+}
+
+.quiz__attempt-title{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #373C40;
+}
+
+.quiz__attempt-value{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: #E9262D;
+    margin-left: 15px;
+}
+
+.maximum{
+    color: #69696C;
+}
+
+.quiz__processing-comment {
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+
+
 .quiz__control-btn{
     width: 189px;
     padding: 14px 45px;

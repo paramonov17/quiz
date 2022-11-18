@@ -65,6 +65,10 @@ let questionIndex = 0;
 
 let score = 0;
 
+let attempt = 1;
+
+let maximum = 0;
+
 const btnStart = document.querySelector('.start'); 
 
 const btnControl = document.querySelector('.quiz__control-btn'); 
@@ -83,8 +87,15 @@ const quizWarning = document.querySelector('.quiz__warning');
 
 const quizTitle = document.querySelector('.quiz__title');
 
+const quizRezult = document.querySelector('.quiz__processing');
+
+const valueRezult = document.querySelector('.quiz__rezult');
+
+const commentRezult = document.querySelector('.quiz__processing-comment');
+
+
 btnStart.onclick = function (){
-    quizDescription.innerHTML = '';
+    quizDescription.style.display = "none";
     btnStart.style.display = "none";
     btnControl.style.display = "block";
     quizContent.style.display = "block";
@@ -113,7 +124,6 @@ function showQuestion() {
 
     for (answerText of questions[questionIndex].answer){
       
-
         const questionTemplate = '<li class="quiz__list-item"><label><input value="%number%" type="radio" class="quiz__input-answer" name="answer" /><span>%answer%</span></label></li>';
 
         const answerHTML = questionTemplate.replace('%answer%', answerText);
@@ -126,18 +136,73 @@ function showQuestion() {
     }
 }
 
-
-
 function rezultQuiz(){
-    const rezult = score / questions.length;
-    const rezultProz = rezult*100;
+    const rezult = (score / questions.length)*100;
+    if (rezult > maximum){
+        maximum = rezult;
+    }
     clearPage();
     quizTitle.textContent = 'Результаты тестирования';
-    if (rezultProz >=70){
+    quizContent.style.display = "none";
+    quizRezult.style.display = "block";
 
+    const rezultTemplate = 
+    `<div class="quiz__rezult-attempt">
+        <div class="quiz__attempt-title">
+            Результаты %attempt%-й  попытки
+        </div>
+        <div class="quiz__attempt-value">
+            <span>%score%/10</span>
+            <span>%rezult%%</span>
+        </div>
+    </div>`;
+
+    const attemptHTML = rezultTemplate.replace('%attempt%', attempt);
+
+    const scoreHTML = attemptHTML.replace('%score%', score);
+
+    const maximumHTML = scoreHTML.replace('%rezult%', rezult);
+
+    const rezultHTML = maximumHTML.replace('%maximum%', maximum);
+ 
+    valueRezult.innerHTML = rezultHTML;
+
+    if (rezult >= 70){
+        btnProcessing.style.display = "none";
+        commentRezult.textContent = 'Текст-комментарий для положительного результата';
+    } 
+    else if (attempt>1){
+        const rezultTemplate = 
+    `<div class="quiz__rezult-attempt">
+        <div class="quiz__attempt-title">
+            Результаты %attempt%-й  попытки
+        </div>
+        <div class="quiz__attempt-value">
+            <span>%score%/10</span>
+            <span>%rezult%%</span>
+        </div>
+        </div>
+    <div class="quiz__rezult-attempt">
+        <div class="quiz__attempt-title">
+            Лучшая попытка
+        </div>
+        <div class="quiz__attempt-value maximum">
+            <span>%maximum%%</span>
+        </div>
+    </div>`;
+
+    const attemptHTML = rezultTemplate.replace('%attempt%', attempt);
+
+    const scoreHTML = attemptHTML.replace('%score%', score);
+
+    const maximumHTML = scoreHTML.replace('%rezult%', rezult);
+
+    const rezultHTML = maximumHTML.replace('%maximum%', maximum);
+ 
+    valueRezult.innerHTML = rezultHTML;
     }
+    
 }
-
 
 function checkAnswer(){
 
@@ -159,17 +224,28 @@ function checkAnswer(){
             quizWarning.style.display = "none";
         }
         else{
-            rezultQuiz();
             btnControl.style.display = "none";
             btnProcessing.style.display = "flex";
+            rezultQuiz();
         }
-
-
     }
     else{
         quizWarning.style.display = "inline-block"; 
 }
 
 }
+
 btnProcessing.onclick = checkProcessing;
 
+function checkProcessing(){   
+    quizRezult.style.display = "none";
+    btnProcessing.style.display = "none";
+    quizDescription.style.display = "block";
+    btnStart.style.display = "block";
+    attempt++;
+    score = 0;
+    questionIndex = 0;
+    clearPage(); 
+    showQuestion();   
+    quizTitle.textContent = 'Тестирование';
+}
